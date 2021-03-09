@@ -11,6 +11,7 @@
 % 'freq_band' is a frequency band of analysis
 % Set 'normal' to 1 if you want to normalize the spectrum values depending on baseline
 % Set 'fig' to 1 if you want to plot FTF analysis results
+% When you draw a analysis result, you can control the sensitivity by adjusting caxis([0 5]) value
 % To use the FTF function, you should set path the folder that contains 'timefreq_anal' function
 %
 % Copyright Hong Gi Yeom
@@ -74,12 +75,9 @@ if fig==1
     figure('Position',[0 0 fullscreen(3) fullscreen(4)]);
     for ch=1:size(data,1)
         subplot(ceil(size(data,1)/10), 10, ch);
-        pcolor(t,fr,squeeze(F(ch,:,:))); 
-        shading 'interp'; caxis([0 0.5]); title(['Channel: ', num2str(ch)]);
+        pcolor(t,fr,squeeze(F(ch,:,:))); colormap(parula)
+        shading 'interp'; caxis([0 5]); title(['Channel: ', num2str(ch)]);
         x1=[0 0]; y1=freq_band; line(x1,y1,'Color','red', 'LineWidth', 1); % line for Onset time
-        if ch~=size(data,1)
-            set(gca,'xtick',[],'ytick',[]);
-        end
     end
 
     set(gcf,'Color','w');
