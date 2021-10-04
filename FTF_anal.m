@@ -62,8 +62,8 @@ end
 ni = size(TF,4); % # of trials of i-th group
 K = size(TF,5); % # of group
 N = K*ni; % # of total trials
-W = squeeze(mean(var(TF, 0, 4),5))*(K*(N-1)/(N-K)); % Within variance
-B = squeeze(var(mean(TF, 4), 0, 5))*ni*K; % Between variance
+B = squeeze(var(mean(TF, 4), 0, 5))/(K-1); % Between variance
+W = squeeze(mean(var(TF, 0, 4),5))/(N-K); % Within variance % modified on 16 Sep 2021
 F=B./W; % F-value
 
 % plotting FTF analysis
