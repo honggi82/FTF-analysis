@@ -3,3 +3,4 @@ This is a Matlab code for F-value time-frequency (FTF) analysis. FTF analysis ap
 You can use this code for academic purpose.
 To use the FTF function in your research, please cite the following paper:
 Hong Gi Yeom, F-value time-frequency (FTF) analysis: between-within variance analysis, 2021
+https://doi.org/10.3389/fnins.2021.729449
