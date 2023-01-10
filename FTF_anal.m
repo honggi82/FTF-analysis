@@ -65,8 +65,8 @@ clear data
 ni = sz(3); % # of trials of i-th group
 K = sz(4); % # of group
 N = K*ni; % # of total trials
-B = zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
-W = zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
+B = zeros(sz(1), ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
+W = zeros(sz(1), ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
 B = squeeze(var(mean(TF, 4), 0, 5))/(K-1); % Between variance
 W = squeeze(mean(var(TF, 0, 4),5))/(N-K); % Within variance % modified on 16 Sep 2021
 F=B./W; % F-value
