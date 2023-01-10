@@ -47,10 +47,11 @@ elseif nargin<7
 elseif nargin<8  
     fig=0;
 end
+ch_n = size(data,1); % Channel number
 
 %====================== time-frequency ====================== 
-TF=zeros(size(data,1), ceil(freq_band(2)-freq_band(1)/f_scale), size(data,2), size(data,3),size(data,4));
-for ch=1:size(data,1)
+TF=zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), size(data,2), size(data,3),size(data,4));
+for ch=1:ch_n
     for j=1:size(data,3)
         for i=1:size(data,4)
             TF(ch,:,:,j,i) = timefreq_anal(data(ch,:,j,i), sf, wnd_size, baseline,f_scale,freq_band, normal);
@@ -74,8 +75,8 @@ if fig==1
     
     fullscreen=get(0,'ScreenSize'); 
     figure('Position',[0 0 fullscreen(3) fullscreen(4)]);
-    for ch=1:size(data,1)
-        subplot(ceil(size(data,1)/10), 10, ch);
+    for ch=1:ch_n
+        subplot(ceil(ch_n/10), 10, ch);
         pcolor(t,fr,squeeze(F(ch,:,:))); colormap(parula)
         shading 'interp'; caxis([0 5]); title(['Channel: ', num2str(ch)]);
         x1=[0 0]; y1=freq_band; line(x1,y1,'Color','red', 'LineWidth', 1); % line for Onset time
