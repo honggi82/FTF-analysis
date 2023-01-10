@@ -78,7 +78,7 @@ if fig==1
     
     fullscreen=get(0,'ScreenSize'); 
     figure('Position',[0 0 fullscreen(3) fullscreen(4)]);
-    for ch=1:ch_n
+    for ch=1:sz(1)
         subplot(ceil(ch_n/10), 10, ch);
         pcolor(t,fr,squeeze(F(ch,:,:))); colormap(parula)
         shading 'interp'; caxis([0 5]); title(['Channel: ', num2str(ch)]);
