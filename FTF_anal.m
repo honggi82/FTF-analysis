@@ -59,6 +59,7 @@ for ch=1:ch_n
     end
     fprintf(['Calculation of BW on channel ', num2str(ch), ' is finished\n']);
 end
+clear data
 
 %================= FTF analysis (Between-Within Variance) ================= 
 ni = size(TF,4); % # of trials of i-th group
