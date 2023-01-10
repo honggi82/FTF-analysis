@@ -49,6 +49,7 @@ elseif nargin<8
 end
 
 %====================== time-frequency ====================== 
+TF=zeros(size(data,1), ceil(freq_band(2)-freq_band(1)/f_scale), size(data,2), size(data,3),size(data,4));
 for ch=1:size(data,1)
     for j=1:size(data,3)
         for i=1:size(data,4)
