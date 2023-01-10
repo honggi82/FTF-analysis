@@ -47,13 +47,13 @@ elseif nargin<7
 elseif nargin<8  
     fig=0;
 end
-ch_n = size(data,1); % Channel number
+sz = size(data); % data size
 
 %====================== time-frequency ====================== 
-TF=zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), size(data,2), size(data,3),size(data,4));
-for ch=1:ch_n
-    for j=1:size(data,3)
-        for i=1:size(data,4)
+TF=zeros(sz(1), ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
+for ch=1:sz(1)
+    for j=1:sz(3)
+        for i=1:sz(4)
             TF(ch,:,:,j,i) = timefreq_anal(data(ch,:,j,i), sf, wnd_size, baseline,f_scale,freq_band, normal);
         end
     end
@@ -62,9 +62,11 @@ end
 clear data
 
 %================= FTF analysis (Between-Within Variance) ================= 
-ni = size(TF,4); % # of trials of i-th group
-K = size(TF,5); % # of group
+ni = sz(3); % # of trials of i-th group
+K = sz(4); % # of group
 N = K*ni; % # of total trials
+B = zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
+W = zeros(ch_n, ceil(freq_band(2)-freq_band(1)/f_scale), sz(2), sz(3), sz(4));
 B = squeeze(var(mean(TF, 4), 0, 5))/(K-1); % Between variance
 W = squeeze(mean(var(TF, 0, 4),5))/(N-K); % Within variance % modified on 16 Sep 2021
 F=B./W; % F-value
