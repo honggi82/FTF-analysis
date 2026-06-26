@@ -1,6 +1,20 @@
 # F-value time-frequency (FTF) analysis
 
 ![F-value time-frequency (FTF) analysis](FTF_analysis.JPG)
+
+<div align="center">
+  <!-- Keep these links. Translations will automatically update with the README. -->
+  <a href="https://github.com/honggi82/FTF-analysis">English</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=de">Deutsch</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=es">Español</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=fr">français</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=ja">日本語</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=ko">한국어</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=pt">Português</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=ru">Русский</a> |
+  <a href="https://www.readme-i18n.com/honggi82/FTF-analysis?lang=zh">中文</a>
+</div>
+
 This repository provides the MATLAB code for the F-value time-frequency (FTF) analysis method proposed in the paper "F-value time-frequency (FTF) analysis: between-within variance analysis."
 
 ## Algorithm: F-value Time-Frequency (FTF) Analysis
